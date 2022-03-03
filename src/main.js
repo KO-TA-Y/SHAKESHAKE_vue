@@ -5,6 +5,9 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import VueQriously from 'vue-qriously'
 Vue.config.productionTip = false
+import axios from 'axios'
+Vue.prototype.$axios = axios
+
 // compatを追加する
 import { initializeApp } from "firebase/app";
 // TODO: Replace the following with your app's Firebase project configuration
