@@ -21,7 +21,7 @@ const routes = [
     component: () => import('../views/Master.vue')
   },
   {
-    path: '/slave',
+    path: '/slave/:id',
     name: 'Slave',
     component: () => import('../views/Slave.vue')
   },

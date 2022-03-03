@@ -4,16 +4,10 @@
     <v-btn
       color="#535655"
       outlined
+      to="/master"
     >
       部屋を作る
     </v-btn>
-    <v-btn
-      color="#535655"
-      outlined
-    >
-      部屋に入る
-    </v-btn>
-
   </div>
 </template>
 
