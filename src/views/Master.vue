@@ -8,7 +8,7 @@
       outlined
       @click="toSelect"
     >
-      はじめる
+      えらぶ
     </v-btn>
   </div>
 </template>
@@ -30,9 +30,11 @@ export default {
       rootLink: "http://localhost:8080/#/slave/",
       latitude:null,
       longitude:null,
+      nodeId:null,
     }
   },
   created() {
+    this.$store.commit('setNodeId', new Date().toString())
     this.getLocation()
     this.addRoom()
   },
@@ -77,7 +79,9 @@ export default {
             date: new Date().toString(),
             state: 0,
             shops:null,
-            member: arrayUnion(new Date().toString())
+            member: arrayUnion(this.$store.state.nodeId),
+            counts:null,
+            selected:null
         });
         const unsub = onSnapshot(doc(db, "rooms", this.docId), (doc) => {
             if(doc.data().member){

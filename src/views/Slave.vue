@@ -25,6 +25,7 @@ export default {
     }
   },
   created() {
+    this.$store.commit('setNodeId',new Date().toString())
     const db = getFirestore()
     const newCityRef = doc(db, "rooms", this.$route.params.id);
     console.log(newCityRef)
@@ -38,7 +39,7 @@ export default {
     console.log(unsub)
     });
     updateDoc(newCityRef, {
-        member: arrayUnion(new Date().toString())
+        member: arrayUnion(this.$store.state.nodeId)
     });
   },
 }
