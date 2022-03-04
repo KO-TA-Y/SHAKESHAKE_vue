@@ -30,6 +30,9 @@ export default {
     console.log(newCityRef)
     // later...
     const unsub = onSnapshot(doc(db, "rooms", this.$route.params.id), (doc) => {
+    if(doc.data().state==1){
+        this.$router.push(`/select/${this.$route.params.id}`)
+    }
     this.db = doc.data()
     console.log("Current data: ", doc.data());
     console.log(unsub)

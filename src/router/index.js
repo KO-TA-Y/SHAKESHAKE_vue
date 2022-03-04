@@ -11,7 +11,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/select',
+    path: '/select/:id',
     name: 'Select',
     component: () => import('../views/Select.vue')
   },
@@ -26,7 +26,7 @@ const routes = [
     component: () => import('../views/Slave.vue')
   },
   {
-    path: '/shake',
+    path: '/shake/:id',
     name: 'Shake',
     component: () => import('../views/Shake.vue')
   },
