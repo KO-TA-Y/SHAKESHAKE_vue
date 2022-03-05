@@ -27,7 +27,7 @@ export default {
       docId:null,
       roomsRef:null,
       slaveLink: null,
-      rootLink: "http://localhost:8080/#/slave/",
+      rootLink: "http://shakeshake-76c32.web.app/#/slave/",
       latitude:null,
       longitude:null,
       nodeId:null,
