@@ -31,7 +31,7 @@ const routes = [
     component: () => import('../views/Shake.vue')
   },
   {
-    path: '/result',
+    path: '/result/:id',
     name: 'Result',
     component: () => import('../views/Result.vue')
   }

@@ -8,6 +8,12 @@ export default new Vuex.Store({
     nodeId:null,
     shopInfo:null,
     motionPermission:false,
+    winLose:null,
+  },
+  getters:{
+    getWinLose:state => {
+      return state.winLose
+    }
   },
   mutations: {
     setNodeId(state, id){
@@ -19,6 +25,8 @@ export default new Vuex.Store({
     setPermission(state,permission){
       state.motionPermission = permission
     },
+    setWinLose(state,winLose){
+      state.winLose = winLose
     }
   },
   actions: {
