@@ -16,7 +16,7 @@
             style="color:#F4961C;position:absolute;bottom:0;"
             v-if="shops !=null"
             :disabled="canPlay!=1"
-            @click ="toShake"
+            @click ="toShake()"
         >
         <strong>はじめる</strong>
         </v-btn>
@@ -77,9 +77,10 @@ export default {
     select(n){
         this.$store.commit('setShop',this.shops[n-1])
         if(!this.selected){
-            updateDoc(doc(this.db, "rooms", this.docId), {
-                selected: arrayUnion(this.$store.state.nodeId)
-            })
+          this.deviceMotionRequest()
+          updateDoc(doc(this.db, "rooms", this.docId), {
+              selected: arrayUnion(this.$store.state.nodeId)
+          })
         }
         this.selected = n
     },
@@ -101,6 +102,24 @@ export default {
             array.splice(rand, 1);
         }
         return newArray;
+    },
+    deviceMotionRequest () {
+      if (DeviceMotionEvent && typeof DeviceOrientationEvent.requestPermission() === 'function') {
+        console.log('iOS (13+) Safari');
+        DeviceMotionEvent.requestPermission().then(response => {
+          alert(response);
+          if (response === 'granted') {
+            this.$store.commit('setPermission',true)
+            console.log('許可ブラウザ');
+          } else {
+            this.$store.commit('setPermission',false)
+            alert('パーミッションエラー: 加速度取得不可');
+          }
+        })
+      } else {
+        this.$store.commit('setPermission',true)
+        console.log('標準ブラウザ');
+      }
     }
   },
 };

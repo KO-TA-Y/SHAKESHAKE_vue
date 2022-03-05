@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     nodeId:null,
     shopInfo:null,
+    motionPermission:false,
   },
   mutations: {
     setNodeId(state, id){
@@ -14,6 +15,10 @@ export default new Vuex.Store({
     },
     setShop(state,shop){
       state.shopInfo = shop
+    },
+    setPermission(state,permission){
+      state.motionPermission = permission
+    },
     }
   },
   actions: {
