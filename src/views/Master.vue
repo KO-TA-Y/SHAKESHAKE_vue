@@ -81,7 +81,8 @@ export default {
             shops:null,
             member: arrayUnion(this.$store.state.nodeId),
             counts:null,
-            selected:null
+            selected:null,
+            result:null
         });
         const unsub = onSnapshot(doc(db, "rooms", this.docId), (doc) => {
             if(doc.data().member){
