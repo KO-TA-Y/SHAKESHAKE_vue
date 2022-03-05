@@ -1,6 +1,6 @@
 <template>
   <div class="back">
-    <h1>SHAKE!SHAKE!</h1>
+    <h1 class="d-flex justify-center">SHAKE!SHAKE!</h1>
     <h2>現在{{num}}人</h2>
     <h2>ホストが開始するまでお待ちください</h2>
   </div>

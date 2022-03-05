@@ -1,7 +1,7 @@
 <template>
   <div class="back">
-    <h1>SHAKE!SHAKE!</h1>
-    {{this.$store.state.winLose}}
+    <h1 class="d-flex justify-center">SHAKE!SHAKE!</h1>
+    <h1 class="d-flex justify-center">{{this.$store.state.winLose}}</h1>
     <div v-if="result">
       <v-card tile color="#fff" elevation=0 class="pt-4">
         <v-img

@@ -1,8 +1,9 @@
 <template>
   <div class="back">
-    <h1>SHAKE!SHAKE!</h1>
-    <h1 v-show="timerSec>0">{{timerSec}}</h1>
-    <h1 v-show="timerSec<1">振れ！！<br>{{count}}<br>{{beta}}<br>{{isShaking}}</h1>
+    <h1 class="d-flex justify-center">SHAKE!SHAKE!</h1>
+    <h1 v-if="timerSec>0" class="d-flex justify-center text-h1">{{timerSec}}</h1>
+    <h1 v-if="timerSec<1" class="d-flex justify-center text-h1">振れ！</h1><br>
+    <h1 v-if="timerSec<1" class="d-flex justify-center">{{count}}回</h1>
   </div>
 </template>
 
@@ -48,9 +49,9 @@ export default {
           console.log(Math.max(...this.counts))
           console.log(this.count)
           if(this.count == Math.max(...this.counts)){
-            this.$store.commit('setWinLose',"win")
+            this.$store.commit('setWinLose',"WIN")
           }else{
-            this.$store.commit('setWinLose',"lose")
+            this.$store.commit('setWinLose',"LOSE")
           }
         }
       }
@@ -68,7 +69,7 @@ export default {
   watch:{
     winLose(val){
       console.log(val)
-      if(val == 'win'){
+      if(val == 'WIN'){
         updateDoc(doc(this.db, "rooms", this.docId), {
           result: arrayUnion(this.$store.state.shopInfo)
         })

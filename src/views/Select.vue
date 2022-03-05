@@ -1,7 +1,7 @@
 <template>
   <div class="back">
-    <h1>SHAKE!SHAKE!</h1>
-    <h2 v-show="!selected">選択して待機</h2>
+    <h1 class="d-flex justify-center">SHAKE!SHAKE!</h1>
+    <h2 v-if="!selected" class="d-flex justify-center">選択して待機！</h2>
     <h2 v-if="selected">選択中：{{shops[selected-1].genre.name}}</h2>
     <v-row>
       <v-col v-for="n in 5" :key="n" cols="12" >

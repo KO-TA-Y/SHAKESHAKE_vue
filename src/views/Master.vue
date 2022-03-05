@@ -1,14 +1,22 @@
 <template>
   <div class="back">
-    <h1>SHAKE!SHAKE!</h1>
-    <qriously :value=slaveLink :size="200" />
-    <h2>現在{{num}}人</h2>
+    <h1 class="d-flex justify-center">SHAKE!SHAKE!</h1>
+    <qriously :value=slaveLink :size="200" class="d-flex justify-center" />
+    <!-- <div class="d-flex justify-center py-2">
+      <v-btn :href=lineShareLink dark color="#06C755bb">LINEで集める</v-btn>
+    </div> -->
+    <h2 class="d-flex justify-center">現在{{num}}人</h2>
+    <p class="px-5">招待リンク<br>{{slaveLink}}</p>
     <v-btn
       color="#535655"
-      outlined
       @click="toSelect"
+      dark
+      block
+      x-large
     >
-      えらぶ
+      <strong>
+        次へ
+      </strong>
     </v-btn>
   </div>
 </template>
@@ -28,6 +36,7 @@ export default {
       roomsRef:null,
       slaveLink: null,
       rootLink: "http://shakeshake-76c32.web.app/#/slave/",
+      lineShareLink:"https://social-plugins.line.me/lineit/share?url=http://shakeshake-76c32.web.app/#/",
       latitude:null,
       longitude:null,
       nodeId:null,
@@ -74,6 +83,7 @@ export default {
         console.log(this.roomsRef.id)
         this.docId = this.roomsRef.id
         this.slaveLink = this.rootLink + this.docId
+        this.lineShareLink = this.lineShareLink + "slave/" +this.docId
         console.log(this.slaveLink)
         setDoc(this.roomsRef, {
             date: new Date().toString(),
