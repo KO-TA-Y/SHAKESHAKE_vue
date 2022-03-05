@@ -71,6 +71,9 @@ export default {
       }
       console.log("Current data: ", doc.data());
       console.log(unsub);
+      if(doc.data().state ==2){
+        this.$router.push(`/shake/${this.docId}`)
+      }
     });
   },
   methods: {
@@ -107,7 +110,7 @@ export default {
       if (DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission === 'function') {
         console.log('iOS (13+) Safari');
         DeviceMotionEvent.requestPermission().then(response => {
-          alert(response);
+          // alert(response);
           if (response === 'granted') {
             this.$store.commit('setPermission',true)
             console.log('許可ブラウザ');
