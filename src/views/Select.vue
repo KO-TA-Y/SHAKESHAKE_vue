@@ -13,7 +13,7 @@
             x-large
             height="10vh"
             color="#535655"
-            style="color:#F4961C;position:absolute;bottom:0;"
+            style="color:#F4961C;"
             v-if="shops !=null"
             :disabled="canPlay!=1"
             @click ="toShake()"
@@ -104,7 +104,7 @@ export default {
         return newArray;
     },
     deviceMotionRequest () {
-      if (DeviceMotionEvent && typeof DeviceOrientationEvent.requestPermission() === 'function') {
+      if (DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission === 'function') {
         console.log('iOS (13+) Safari');
         DeviceMotionEvent.requestPermission().then(response => {
           alert(response);
